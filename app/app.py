@@ -7,12 +7,6 @@ import requests
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from login import render_login, render_user_badge, logout
-
-# Verificar login — si no está autenticado se detiene aquí
-if not render_login():
-    st.stop()
- 
 from modules.styles import (
     apply_styles, render_header, render_seccion,
     render_clima_cards, render_prediccion_card,
@@ -130,8 +124,7 @@ with st.sidebar:
  
     st.markdown("<hr style='border:none;border-top:1px solid #ebebeb;margin:16px 0'>",
                 unsafe_allow_html=True)
-    modelo_elegido = st.selectbox("Modelo IA", ["XGBoost", "Random Forest"])
-    prefijo = "om_xgb" if modelo_elegido == "XGBoost" else "om_rf"
+    modelo_elegido = "XGBoost"
  
     st.markdown("<hr style='border:none;border-top:1px solid #ebebeb;margin:16px 0'>",
                 unsafe_allow_html=True)
@@ -157,7 +150,7 @@ hoy    = datetime.today()
 manana = hoy + timedelta(days=1)
  
 try:
-    modelos    = cargar_modelos(prefijo)
+    modelos    = cargar_modelos()
     modelos_ok = True
 except Exception as e:
     modelos_ok    = False
@@ -510,7 +503,6 @@ else:
     with col2:
         st.markdown(info_card("Modelos entrenados",
             "XGBoost Regressor — 5 modelos<br>"
-            "Random Forest Regressor — 5 modelos<br>"
             "Variables predichas: temperatura, humedad,<br>"
             "lluvia, viento y presión<br>"
             "División cronológica 80/20 (no aleatoria)"

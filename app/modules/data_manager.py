@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Buscamos la carpeta raíz (subiendo un nivel desde app/)
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-DATA_FILE = BASE_DIR / "data" / "processed" / "dataset_features.csv"
+DATA_FILE = BASE_DIR / "dataset_features.csv"
 
 @st.cache_data(ttl=3600)
 def obtener_datos_hoy():

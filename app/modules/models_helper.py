@@ -12,14 +12,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 MODELS_DIR = BASE_DIR / "models"
 
 
-def cargar_modelos(prefijo):
+def cargar_modelos():
 
     return {
-        "temp": joblib.load(MODELS_DIR / f"{prefijo}_temperatura.pkl"),
-        "humedad": joblib.load(MODELS_DIR / f"{prefijo}_humedad.pkl"),
-        "lluvia": joblib.load(MODELS_DIR / f"{prefijo}_lluvia.pkl"),
-        "viento": joblib.load(MODELS_DIR / f"{prefijo}_viento.pkl"),
-        "presion": joblib.load(MODELS_DIR / f"{prefijo}_presion.pkl"),
+        "temp": joblib.load(MODELS_DIR / "om_xgb_temperatura.pkl"),
+        "humedad": joblib.load(MODELS_DIR / "om_xgb_humedad.pkl"),
+        "lluvia": joblib.load(MODELS_DIR / "om_xgb_lluvia.pkl"),
+        "viento": joblib.load(MODELS_DIR / "om_xgb_viento.pkl"),
+        "presion": joblib.load(MODELS_DIR / "om_xgb_presion.pkl"),
     }
 
 

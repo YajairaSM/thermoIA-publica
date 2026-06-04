@@ -277,7 +277,7 @@ else:  # ¿Qué es ThermoIA?
     )
     items = [
         ("🤖","Inteligencia Artificial",
-         "Modelos XGBoost y Random Forest entrenados con datos 1990–2026."),
+         "Modelos XGBoost entrenados con datos 1990–2026."),
         ("🌡","Índice de Calor",
          "Fórmula de Rothfusz (OMS) que combina temperatura y humedad real."),
         ("📅","Predicción diaria",
